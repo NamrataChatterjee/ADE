@@ -1,0 +1,55 @@
+{
+	"name": "ds_customer_sqldb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqldb_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "customer_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "customer_email",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_password",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_fname",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_lname",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_street",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_city",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_state",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_zipcode",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ttcustomer"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
