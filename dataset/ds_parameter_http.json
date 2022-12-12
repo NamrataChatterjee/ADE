@@ -6,12 +6,15 @@
 			"type": "LinkedServiceReference",
 			"parameters": {
 				"baseUrl": {
-					"value": "@dataset().relativeUrl",
+					"value": "@dataset().baseUrl",
 					"type": "Expression"
 				}
 			}
 		},
 		"parameters": {
+			"baseUrl": {
+				"type": "string"
+			},
 			"relativeUrl": {
 				"type": "string"
 			}
@@ -20,7 +23,11 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "HttpServerLocation"
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().relativeUrl",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
