@@ -67,9 +67,21 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('products_metadata').output.columnCount,10)",
+						"value": "@equals(activity('products_metadata').output.columnCount,6)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "copy products failed",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "copy products failed",
+								"errorCode": "404"
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Ingestproducts_copy1",
@@ -129,6 +141,38 @@
 									"type": "DatasetReference"
 								}
 							]
+						},
+						{
+							"name": "Delete Source",
+							"type": "Delete",
+							"dependsOn": [
+								{
+									"activity": "Ingestproducts_copy1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "ds_tt_mod6_blobstorage",
+									"type": "DatasetReference"
+								},
+								"enableLogging": false,
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							}
 						}
 					]
 				}
