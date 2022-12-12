@@ -2,13 +2,12 @@
 	"name": "ds_parameterPracticeGen2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adlsgen2_adepractice",
+			"referenceName": "ls_parameter_gen2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"filename": {
-				"type": "string",
-				"defaultValue": "orders.csv"
+				"type": "string"
 			}
 		},
 		"annotations": [],
