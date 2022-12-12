@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adepracticeADF"
+		},
+		"ls_adlsgen2_adepractice_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlsgen2_adepractice'"
+		},
+		"ls_blobStorage_adepractice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blobStorage_adepractice'"
+		},
+		"ls_http_adepractice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_http_adepractice'"
+		},
+		"ls_sqldb_adepractice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sqldb_adepractice'"
+		},
+		"ls_adlsgen2_adepractice_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adepgen2ractice.dfs.core.windows.net/"
+		},
+		"ls_http_adepractice_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"ls_http_adepractice_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "NamrataChatterjee"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adepracticeADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adlsgen2_adepractice_accountKey": {
+						"value": "[parameters('ls_adlsgen2_adepractice_accountKey')]"
+					},
+					"ls_blobStorage_adepractice_connectionString": {
+						"value": "[parameters('ls_blobStorage_adepractice_connectionString')]"
+					},
+					"ls_http_adepractice_password": {
+						"value": "[parameters('ls_http_adepractice_password')]"
+					},
+					"ls_sqldb_adepractice_connectionString": {
+						"value": "[parameters('ls_sqldb_adepractice_connectionString')]"
+					},
+					"ls_adlsgen2_adepractice_properties_typeProperties_url": {
+						"value": "[parameters('ls_adlsgen2_adepractice_properties_typeProperties_url')]"
+					},
+					"ls_http_adepractice_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_adepractice_properties_typeProperties_url')]"
+					},
+					"ls_http_adepractice_properties_typeProperties_userName": {
+						"value": "[parameters('ls_http_adepractice_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

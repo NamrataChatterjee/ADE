@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adepracticeADF"
+		},
+		"ls_adlsgen2_adepractice_accountKey": {
+			"value": ""
+		},
+		"ls_blobStorage_adepractice_connectionString": {
+			"value": ""
+		},
+		"ls_http_adepractice_password": {
+			"value": ""
+		},
+		"ls_sqldb_adepractice_connectionString": {
+			"value": ""
+		},
+		"ls_adlsgen2_adepractice_properties_typeProperties_url": {
+			"value": "https://adepgen2ractice.dfs.core.windows.net/"
+		},
+		"ls_http_adepractice_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_http_adepractice_properties_typeProperties_userName": {
+			"value": "NamrataChatterjee"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
