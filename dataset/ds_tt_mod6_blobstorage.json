@@ -1,0 +1,23 @@
+{
+	"name": "ds_tt_mod6_blobstorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobStorage_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "products.csv",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
