@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "orders.csv",
-				"container": "retail"
+				"fileName": "lookup_file.csv",
+				"container": "data"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
