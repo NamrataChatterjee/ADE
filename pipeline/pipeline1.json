@@ -58,7 +58,7 @@
 						"referenceName": "ds_parameterPracticeGen2",
 						"type": "DatasetReference",
 						"parameters": {
-							"filename": "test"
+							"filename": "orders.csv"
 						}
 					}
 				]
