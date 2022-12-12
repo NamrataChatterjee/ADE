@@ -51,6 +51,10 @@
 						"referenceName": "ds_parameter_http",
 						"type": "DatasetReference",
 						"parameters": {
+							"baseUrl": {
+								"value": "@pipeline().parameters.baseUrl",
+								"type": "Expression"
+							},
 							"relativeUrl": {
 								"value": "@pipeline().parameters.relativeUrl",
 								"type": "Expression"
