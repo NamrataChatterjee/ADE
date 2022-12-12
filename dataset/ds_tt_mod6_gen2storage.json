@@ -1,0 +1,23 @@
+{
+	"name": "ds_tt_mod6_gen2storage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsgen2_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "products.csv",
+				"folderPath": "raw",
+				"fileSystem": "retail"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
