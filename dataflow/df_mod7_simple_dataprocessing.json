@@ -19,7 +19,29 @@
 					"name": "orderItems"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_gen2Mod7_highorders",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_gen2mod7_LowOrders",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_gen2mod7_errors",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				}
+			],
 			"transformations": [
 				{
 					"name": "aggregateTotalByOrderid"
@@ -73,7 +95,28 @@
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 split(total_amout>500,",
 				"     total_amout<=500,",
-				"     disjoint: false) ~> orderValue@(highValue, lowValue, Error)"
+				"     disjoint: false) ~> orderValue@(highValue, lowValue, Error)",
+				"orderValue@highValue sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"orderValue@lowValue sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2",
+				"orderValue@Error sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink3"
 			]
 		}
 	}
