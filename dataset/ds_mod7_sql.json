@@ -1,0 +1,40 @@
+{
+	"name": "ds_mod7_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqldb_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "order_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "order_date",
+				"type": "varchar"
+			},
+			{
+				"name": "order_customer_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "order_status",
+				"type": "varchar"
+			},
+			{
+				"name": "order_amount",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "premimum_orders"
+		}
+	}
+}
