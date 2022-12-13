@@ -1,0 +1,48 @@
+{
+	"name": "ds_bob_mod7_orderitems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobStorage_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "order_items1.csv",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "order_item_id",
+				"type": "String"
+			},
+			{
+				"name": "order_item_order_id",
+				"type": "String"
+			},
+			{
+				"name": "order_item_product_id",
+				"type": "String"
+			},
+			{
+				"name": "order_item_quantity",
+				"type": "String"
+			},
+			{
+				"name": "order_item_subtotal",
+				"type": "String"
+			},
+			{
+				"name": "order_item_product_price",
+				"type": "String"
+			}
+		]
+	}
+}
