@@ -1,0 +1,23 @@
+{
+	"name": "ds_gen2mod7_LowOrders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsgen2_adepractice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "lowValueProducts",
+				"fileSystem": "modseven"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
